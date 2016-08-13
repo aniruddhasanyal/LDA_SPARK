@@ -1,0 +1,13 @@
+
+
+import org.apache.spark.mllib.clustering.{LDA, DistributedLDAModel}
+import org.apache.spark.mllib.linalg.Vectors
+import org.apache.spark.mllib.clustering.{LDA, DistributedLDAModel}
+import org.apache.spark.mllib.linalg.Vectors
+
+val sameModel = DistributedLDAModel.load(sc, "D:/Work/myProjects/PySpark/distributed")
+
+val topicDistrib = sameModel.topTopicsPerDocument(5)
+
+topicDistrib.take(4)
+#res12: Array[(Long, Array[Int], Array[Double])] = Array((1,Array(3, 11, 13, 9, 5),Array(0.9329128929435392, 0.0075620562595979, 0.004914310783003017, 0.0048990563523552836, 0.00487371104337202)))
